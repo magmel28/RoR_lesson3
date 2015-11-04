@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 
-
+/*
 thead th:nth-child(1){
   border-top-left-radius: 8px;
 }
@@ -55,7 +55,7 @@ body > a{
 body > a:visited{
   color: white;
 }
-
+*/
 
 
 
@@ -242,4 +242,28 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.body{
+  width: 60%;
+}
+table thead{
+  font-size: 25px;
+}
+strong{
+  display: block;
+  font-size: 18px;
+}
+a.btn{
+  color: white !important;
+}
+a.btn-default{
+  color: #222222 !important;
+}
+#logo{
+  padding-top: 16px;
+}
+input, textarea{
+  border-radius: 3px;
+  padding: 7px 10px;
 }
