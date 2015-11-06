@@ -3,8 +3,13 @@
 
 /* universal */
 
+.alert{
+  background-color: rgba(239,0,0,0.23);
+}
+
 body {
   padding-top: 60px;
+  background-color: rgba(217,237,247,0.32) !important;
 }
 
 section {
@@ -22,7 +27,9 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
-
+form .actions input[type='submit']{
+  background-color: #38B33A !important;
+}
 /* typography */
 
 /* header */
@@ -177,7 +184,9 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
-
+textarea{
+  min-height: 200px;
+}
 input {
   height: auto !important;
 }
@@ -196,9 +205,7 @@ input {
   }
 }
 
-.body{
-  width: 60%;
-}
+
 table thead{
   font-size: 25px;
 }

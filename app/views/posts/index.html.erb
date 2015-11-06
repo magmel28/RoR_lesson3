@@ -2,38 +2,16 @@
 
 <h1>Listing Posts</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th class="body">Body</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.name %></td>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.tags %></td>
-        <td><%= link_to 'Show', post, class: "btn btn-info" %></td>
-        <% if current_user == post.user %>
-            <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-        <% else %>
-            <td></td>
-            <td></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @posts.each do |post| %>
+    <div class="post">
+      <h4><%= link_to post.title, post %></h4>
+      <p><%= post.body %></p>
+      <div class="post-info"><div><%= post.created_at %></div>Author: <%= link_to post.user.name, post.user %></div>
+      <p class="tags">Tags: <%= post.tags %></p>
+    </div>
+<% end %>
 
 <br>
 <% if current_user != nil %>
-        <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
+    <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
 <% end %>

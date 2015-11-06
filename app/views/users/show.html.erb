@@ -1,7 +1,7 @@
 <div class="user-page">
   <h1>Profile</h1>
   <h2 class=""><%= @user.name %> - <span><%= @user.email %></span></h2>
-  <h3>Your posts:</h3>
+  <h3>User posts:</h3>
       <% @user_posts.each do |post| %>
           <div class="user-post">
             <h4><%= post.title %></h4>
@@ -9,8 +9,10 @@
             <p class="tags">Tags: <%= post.tags %></p>
             <div class="actions">
               <%= link_to 'Show', post, class: "btn btn-info" %>
-              <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                <% if check_user_permission %>
+                    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %>
+                    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                <% end %>
             </div>
           </div>
       <% end %>
