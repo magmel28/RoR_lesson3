@@ -1,69 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-/*
-thead th:nth-child(1){
-  border-top-left-radius: 8px;
-}
-thead th:last-child{
-  border-top-right-radius: 8px;
-}
-tbody tr:last-child td:first-child{
-  border-bottom-left-radius: 8px;
-}
-tbody tr:last-child td:last-child{
-  border-bottom-right-radius: 8px;
-}
-th{
-  font-size: 18px;
-}
-td{
-  padding: 5px 10px;
-}
-table a{
-  border-radius: 5px;
-  padding: 3px;
-  color: #0088cc;
-  text-decoration: none;
-}
-table a:visited{
-  color: #0088cc;
-}
-table a:hover{
-  color: white;
-}
-thead{
-  background-color: #fbf0cb;
-}
-thead th{
-  padding: 10px 0
-}
-tbody tr:nth-child(odd){
-  background-color: #efefef;
-}
-tbody tr:nth-child(even) {
-  background-color: #efefef;
-}
-body > a{
-  background-color: #ffd545;
-  border-radius: 7px;
-  padding: 5px 10px;
-  color: white;
-  text-decoration: none;
-}
-body > a:visited{
-  color: white;
-}
-*/
-
-
-
-
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 /* universal */
 
 body {
@@ -89,6 +26,20 @@ textarea {
 /* typography */
 
 /* header */
+header.navbar{
+  background: -webkit-linear-gradient(#368237, #38B33A); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#368237, #38B33A); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#368237, #38B33A); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#368237, #38B33A); /* Standard syntax */
+  border: 0px;
+}
+.navbar-inverse .navbar-nav > li > a{
+  color: white;
+  &:hover{
+    top: 1px;
+  }
+
+}
 
 #logo {
   float: left;
@@ -104,6 +55,7 @@ textarea {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+  background-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {

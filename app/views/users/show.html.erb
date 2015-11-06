@@ -1,2 +1,17 @@
-<h1><%= @user.name %></h1>
-<h1><%= @user.email %></h1>
+<div class="user-page">
+  <h1>Profile</h1>
+  <h2 class=""><%= @user.name %> - <span><%= @user.email %></span></h2>
+  <h3>Your posts:</h3>
+      <% @user_posts.each do |post| %>
+          <div class="user-post">
+            <h4><%= post.title %></h4>
+            <p><%= post.body %></p>
+            <p class="tags">Tags: <%= post.tags %></p>
+            <div class="actions">
+              <%= link_to 'Show', post, class: "btn btn-info" %>
+              <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          </div>
+      <% end %>
+</div>
