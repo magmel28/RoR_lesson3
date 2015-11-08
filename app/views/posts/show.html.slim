@@ -1,0 +1,25 @@
+div.post
+  p#notice
+    = notice
+
+  h2.title
+    = @post.title
+
+  p.body
+    = @post.body
+
+  div.post-info
+    div
+      = @post.created_at
+    | Author:
+    = link_to @post.user.name, @post.user
+
+  p.tags
+    Tags
+    = @post.tags
+
+  div.actions
+    = link_to 'Back', :back, class: 'btn  btn-default'
+    - if current_user == @post.user
+      = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'
+      = link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'

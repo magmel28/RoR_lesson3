@@ -1,0 +1,27 @@
+p#notice
+  = notice
+
+h1 Listing Posts
+
+- @posts.each do |post|
+  div.post
+    h4
+      = link_to post.title, post
+
+    p
+      = post.body
+
+    div.post-info
+      div
+        = post.created_at
+      | Author:
+      = link_to post.user.name, post.user
+
+    p.tags
+      | Tags:
+      = post.tags
+
+br
+
+- if current_user != nil
+  = link_to 'New Post', new_post_path, class: 'btn btn-success'
