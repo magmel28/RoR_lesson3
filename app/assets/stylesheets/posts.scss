@@ -1,6 +1,22 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1{
+  margin-bottom: 55px;
+}
+.search{
+  margin-top: -85px;
+
+  button {
+    position: relative;
+    top: -48px;
+    float: right;
+
+    img {
+      width: 26px;
+    }
+  }
+}
 .post{
   position: relative;
   margin-bottom: 20px;

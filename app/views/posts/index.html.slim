@@ -3,6 +3,13 @@ p#notice
 
 h1 Listing Posts
 
+
+= form_tag posts_path,:class => 'navbar-right search', :method => 'get' do
+  p
+    = text_field_tag :search, params[:search]
+    = button_tag :submit, :name => nil
+      =image_tag 'http://iconizer.net/files/Brightmix/orig/monotone_search_zoom.png'
+
 - @posts.each do |post|
   div.post
     h4
