@@ -2,6 +2,7 @@ module SessionsHelper
 
   def log_in(user)
     session[:user_id] = user.id
+    session[:count] = 0
   end
 
   def current_user

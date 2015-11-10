@@ -13,8 +13,6 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
 
-      <%= session[:count] %>
-
       <% if session[:count] == 10 %>
           <%= render 'shared/modal_banner'%>
       <% end %>
