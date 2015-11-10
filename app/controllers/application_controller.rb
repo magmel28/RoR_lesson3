@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def counter
-    unless session[:user_id].nil?
+    if session[:user_id].present?
       if session[:count].nil?
         session[:count] = 0
       else
