@@ -1,6 +1,4 @@
 div.post
-  p#notice
-    = notice
 
   h2.title
     = @post.title
@@ -8,15 +6,15 @@ div.post
   p.body
     = @post.body
 
+  p.tags.text-muted
+    | Tags:&nbsp;
+    = @post.tags
+
   div.post-info
     div
       = @post.created_at
-    | Author:
+    | Author:&nbsp;
     = link_to @post.user.name, @post.user
-
-  p.tags
-    Tags
-    = @post.tags
 
   div.actions
     = link_to 'Back', :back, class: 'btn  btn-default'

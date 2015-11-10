@@ -3,10 +3,12 @@
 
 /* universal */
 
-.alert{
+.alert-alert{
   background-color: rgba(239,0,0,0.23);
 }
-
+.alert-notice{
+  background-color: rgba(75,179,56,0.38);;
+}
 body {
   padding-top: 60px;
   background-color: rgba(217,237,247,0.32) !important;

@@ -1,6 +1,3 @@
-p#notice
-  = notice
-
 h1 Listing Posts
 
 
@@ -18,15 +15,15 @@ h1 Listing Posts
     p
       = post.body
 
+    div.tags.text-muted
+      | Tags:
+      = post.tags
+
     div.post-info
       div
         = post.created_at
       | Author:
       = link_to post.user.name, post.user
-
-    p.tags
-      | Tags:
-      = post.tags
 
 br
 

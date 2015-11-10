@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    #@posts = Post.search(params[:search])
     if params[:search].present?
       @posts = Post.where('title LIKE ? or body LIKE ? or tags LIKE ?',
                           "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
