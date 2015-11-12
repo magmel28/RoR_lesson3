@@ -5,5 +5,5 @@ class Post < ActiveRecord::Base
             uniqueness: true
 
   belongs_to :user
-
+  has_many :comments
 end

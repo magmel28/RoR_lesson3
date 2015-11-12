@@ -27,5 +27,8 @@ h1 Listing Posts
 
 br
 
-- if current_user != nil
+- if session[:user_id].present?
   = link_to 'New Post', new_post_path, class: 'btn btn-success'
+
+-else
+   p.text-warning Only registered users can create new posts
