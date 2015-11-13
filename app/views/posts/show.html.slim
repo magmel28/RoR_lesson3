@@ -22,7 +22,7 @@ div.post
       = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'
       = link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'
 
-div.comments
+div.comments#comments
   h3 Comments
   - @comments.each do |comment|
     div.comment
@@ -30,7 +30,9 @@ div.comments
       div.comment_body = comment.body
       div.comment_info.text-muted
         =' distance_of_time_in_words(comment.created_at, Time.now)
-        | ago
+        | ago 
+        -if check_user_comment(comment)
+          =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-mini'
 
   -if @current_user.present?
     = link_to 'New comment', new_post_comment_path(@post), class: 'btn btn-success add_comment'

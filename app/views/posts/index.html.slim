@@ -1,5 +1,7 @@
 h1 Listing Posts
 
+- if session[:user_id].present?
+  = link_to 'New Post', new_post_path, class: 'btn btn-success', style: 'margin-bottom: 20px'
 
 = form_tag posts_path,:class => 'navbar-right search', :method => 'get' do
   p
@@ -24,7 +26,7 @@ h1 Listing Posts
         = post.created_at
       | Author:
       =' link_to post.user.name, post.user
-      = link_to comments_count(post), post, class: 'count_comments'
+      = link_to comments_count(post), post_path(post, anchor: 'comments'), class: 'count_comments'
 
 br
 

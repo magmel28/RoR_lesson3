@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user_auth, only: :create
 
   #require 'action_view'
 
@@ -84,6 +85,13 @@ class PostsController < ApplicationController
 
     def check_user
       if @post.user_id != current_user.id
+        flash[:alert] = 'You have not permission!'
+        redirect_to root_path
+      end
+    end
+
+    def check_user_auth
+      if session[:user_id].nil?
         flash[:alert] = 'You have not permission!'
         redirect_to root_path
       end
