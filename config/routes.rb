@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+#  get 'comments/new'
+
   #get 'sessions/new'
 
  # get 'users/new'
 
-  resources :posts
   resources :users
   resources :sessions
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
 
   root 'posts#index'
   #get 'posts/index'

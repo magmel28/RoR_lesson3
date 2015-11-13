@@ -23,7 +23,8 @@ h1 Listing Posts
       div
         = post.created_at
       | Author:
-      = link_to post.user.name, post.user
+      =' link_to post.user.name, post.user
+      = link_to comments_count(post), post, class: 'count_comments'
 
 br
 

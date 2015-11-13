@@ -21,3 +21,19 @@ div.post
     - if current_user == @post.user
       = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'
       = link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+div.comments
+  h3 Comments
+  - @comments.each do |comment|
+    div.comment
+      h4 = comment.user.name
+      div.comment_body = comment.body
+      div.comment_info.text-muted
+        =' distance_of_time_in_words(comment.created_at, Time.now)
+        | ago
+
+  -if @current_user.present?
+    = link_to 'New comment', new_post_comment_path(@post), class: 'btn btn-success add_comment'
+  -else
+    p Только авторизированные пользователи могут оставлять комментарии
+    = link_to 'Log in', login_path, class: 'btn btn-success'
