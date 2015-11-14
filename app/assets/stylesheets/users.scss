@@ -13,6 +13,9 @@
   span{
     color: #555555;
   }
+  .gravatar{
+    float: left;
+  }
 }
 .user-post{
   border-bottom: 1px dashed #368237;
@@ -21,4 +24,7 @@
 input[name='commit']{
   margin-top: 15px;
   margin-bottom: 5px;
+}
+.user-info{
+  padding-left: 10px;
 }

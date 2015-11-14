@@ -41,28 +41,31 @@ div {
   color: green;
 }
 
-.field_with_errors input{
-  background-color: rgba(255, 0, 0, 0.14);
-}
-
-#error_explanation {
-  width: 450px;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 15px;
-    margin: -7px;
-    margin-bottom: 0px;
-    color: red;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: disc;
+.field_with_errors {
+  input, textarea {
+    background-color: rgba(255, 0, 0, 0.14);
   }
 }
+
+  #error_explanation {
+    width: 450px;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+
+    h2 {
+      text-align: left;
+      font-weight: bold;
+      padding: 5px 5px 5px 15px;
+      font-size: 15px;
+      margin: -7px;
+      margin-bottom: 0px;
+      color: red;
+    }
+
+    ul li {
+      font-size: 12px;
+      list-style: disc;
+    }
+  }
+

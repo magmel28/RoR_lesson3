@@ -1,6 +1,14 @@
 <div class="user-page">
   <h1>Profile</h1>
-  <h2 class=""><%= @user.name %> - <span><%= @user.email %></span></h2>
+  <table>
+    <tr>
+      <td><%= gravatar_for @user%></td>
+      <td class = 'user-info'>
+        <p><%= @user.name %></p>
+        <p><span><%= @user.email %></span></p>
+      </td>
+    </tr>
+  </table>
   <h3>User posts:</h3>
       <% @user_posts.each do |post| %>
           <div class="user-post">

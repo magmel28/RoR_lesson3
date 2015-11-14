@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       @posts = Post.where('title LIKE ? or body LIKE ? or tags LIKE ?',
                           "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      @posts = Post.all
+      @posts = Post.all.newest.reverse
     end
   end
 

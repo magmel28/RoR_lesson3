@@ -10,23 +10,26 @@ h1 Listing Posts
       =image_tag 'http://iconizer.net/files/Brightmix/orig/monotone_search_zoom.png'
 
 - @posts.each do |post|
-  div.post
-    h4
-      = link_to post.title, post
+  table.post
+    tr
+      td.user-in-post
+        = gravatar_for post.user
+        =' link_to post.user.name, post.user
+      td.post-content
+        h4
+          = link_to post.title, post
 
-    p
-      = post.body
+        p
+          = post.body
 
-    div.tags.text-muted
-      | Tags:
-      = post.tags
+        div.tags.text-muted
+          | Tags:
+          = post.tags
 
-    div.post-info
-      div
-        = post.created_at
-      | Author:
-      =' link_to post.user.name, post.user
-      = link_to comments_count(post), post_path(post, anchor: 'comments'), class: 'count_comments'
+        div.post-info
+          div
+            = post.created_at
+          =' link_to comments_count(post), post_path(post, anchor: 'comments'), class: 'count_comments'
 
 br
 

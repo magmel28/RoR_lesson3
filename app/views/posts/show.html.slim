@@ -25,14 +25,18 @@ div.post
 div.comments#comments
   h3 Comments
   - @comments.each do |comment|
-    div.comment
-      h4 = comment.user.name
-      div.comment_body = comment.body
-      div.comment_info.text-muted
-        =' distance_of_time_in_words(comment.created_at, Time.now)
-        | ago 
-        -if check_user_comment(comment)
-          =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-mini'
+    table.comment
+      tr
+        td
+          = gravatar_for(comment.user)
+        td
+          h4 = comment.user.name
+          div.comment_body = comment.body
+          div.comment_info.text-muted
+            =' distance_of_time_in_words(comment.created_at, Time.now)
+            | ago
+            -if check_user_comment(comment)
+              =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-mini'
 
   -if @current_user.present?
     = link_to 'New comment', new_post_comment_path(@post), class: 'btn btn-success add_comment'
