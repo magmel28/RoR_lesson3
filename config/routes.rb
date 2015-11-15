@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  post 'likes/like'
+  
+  post 'likes/dislike'
+
 #  get 'comments/new'
 
   #get 'sessions/new'
 
  # get 'users/new'
+
 
   resources :users
   resources :sessions

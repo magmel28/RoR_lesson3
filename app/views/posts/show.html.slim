@@ -14,9 +14,11 @@ div.post
     div
       = @post.created_at
     | Author:&nbsp;
-    = link_to @post.user.name, @post.user
+    =' link_to @post.user.name, @post.user
+
 
   div.actions
+    = render partial:('likes/like')
     = link_to 'Back', :back, class: 'btn  btn-default'
     - if current_user == @post.user
       = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'
@@ -43,3 +45,4 @@ div.comments#comments
   -else
     p Только авторизированные пользователи могут оставлять комментарии
     = link_to 'Log in', login_path, class: 'btn btn-success'
+

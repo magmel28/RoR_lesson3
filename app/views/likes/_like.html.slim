@@ -1,0 +1,4 @@
+div#like_count
+  = @post.likes.count
+= button_to 'Like', {:controller => :likes, :action => :like, :post_id => @post.id, :user_id => current_user.id},
+            remote: true, id: :like_btn, disabled: user_like_present?

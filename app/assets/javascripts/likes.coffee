@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-#$(document).ready ->
-#  alert "page has loaded!"
-
-
+$(document).on "page:change", ->
+  like_count = $('#like_count').text()
+  like_count = parseInt(like_count, 10) + 1
+  $("#like_btn").on "click", () ->
+    $('#like_count').text(like_count)
 
