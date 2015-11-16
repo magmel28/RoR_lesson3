@@ -3,4 +3,7 @@ class Like < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :user
+
+  scope :like_post, -> { where(like_post: true)  }
+  scope :dislike_post, -> { where(dislike_post: true)  }
 end

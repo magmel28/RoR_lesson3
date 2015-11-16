@@ -1,0 +1,3 @@
+div#dislike_count = @post.likes.dislike_post.count
+= button_to 'Dislike', { :controller => :likes, :action => :like, :post_id => @post.id, :user_id => current_user.id,
+                      dislike_post: :true }, remote: true, id: :dislike_btn, disabled: user_dislike_present?
