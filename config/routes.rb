@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  post 'likes/like'
-  
-  post 'likes/dislike'
+  post 'likes/vote'
 
 #  get 'comments/new'
 

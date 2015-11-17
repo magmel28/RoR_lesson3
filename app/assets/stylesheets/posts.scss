@@ -22,6 +22,15 @@ h1{
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #38B33A;
+  .title{
+    margin-bottom: 0;
+  }
+  .body{
+    margin-top: 10px;
+  }
+  .votes{
+    position: static;
+  }
   .tags{
     font-size: 11px;
     margin-bottom: 15px;

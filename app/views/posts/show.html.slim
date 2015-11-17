@@ -2,6 +2,9 @@ div.post
 
   h2.title
     = @post.title
+  div.votes
+    = render partial: ('likes/like')
+    = render partial: ('likes/dislike')
 
   p.body
     = @post.body
@@ -18,8 +21,6 @@ div.post
 
 
   div.actions
-    = render partial:('likes/like')
-    = render partial:('likes/dislike')
     = link_to 'Back', :back, class: 'btn  btn-default'
     - if current_user == @post.user
       = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'

@@ -1,3 +1,38 @@
 // Place all the styles related to the Likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.post-info .votes{
+  position: absolute !important;
+  right: 100px;
+  bottom: 11px;
+}
+.vote{
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: -5px;
+}
+.like_btn, .dislike_btn{
+  border: 0px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  width: 15px;
+  background-size: 100%;
+  outline: none;
+
+}
+.button_to{
+  width: 25px;
+  display: inline-block;
+  height: 25px;
+  position: relative;
+  top: 10px;
+}
+.like_btn{
+  background-image: url("thumbs-up.png");
+
+}
+.dislike_btn{
+  background-image: url("thumbs-down.png");
+  position: relative;
+  top: 2px;
+}

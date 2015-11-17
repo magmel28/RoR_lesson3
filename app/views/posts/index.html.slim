@@ -29,6 +29,11 @@ h1 Listing Posts
         div.post-info
           div
             = post.created_at
+          div.votes
+            - @post = post
+            = render partial: ('likes/like')
+            = render partial: ('likes/dislike')
+
           =' link_to comments_count(post), post_path(post, anchor: 'comments'), class: 'count_comments'
 
 br

@@ -1,0 +1,10 @@
+/* $(document).ajaxSuccess(function() { */
+    $('.like_count_post_id' + <%= @post.id.to_s %>).html(<%= @post.likes.like_post.count %>)
+    $('.dislike_count_post_id' + <%= @post.id.to_s %>).html(<%= @post.likes.dislike_post.count %>)
+/*});*/
+/*$(document).ready(function(){
+    alert("lol");
+});
+$(document).on('page:load', function(){
+    alert("LOL");
+});*/

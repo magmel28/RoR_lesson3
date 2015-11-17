@@ -1,0 +1,5 @@
+<%= button_to '', { :controller => :likes, :action => :vote, :post_id => @post.id, :user_id => session[:user_id],
+                    like_post: :true }, remote: true, id: :like_btn, class: :like_btn %>
+<div class="vote like_count_post_id<%= @post.id %>">
+  <%= @post.likes.like_post.count %>
+</div>
