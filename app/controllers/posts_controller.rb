@@ -9,9 +9,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @posts = Post.all
     if params[:search].present?
       @posts = Post.where('title LIKE ? or body LIKE ? or tags LIKE ?',
                           "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    elsif params['sort_by'] == 'popular'
+      @posts = @posts.sort_by { |post| post.likes.like_post.count}.reverse
+    elsif params['sort_by'] == 'active'
+      @posts = @posts.sort_by { |post| post[:updated_at]}.reverse
     else
       @posts = Post.all.newest.reverse
     end
@@ -26,6 +31,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    if session[:user_id].nil?
+      redirect_to login_path
+    end
   end
 
   # GET /posts/1/edit
@@ -84,7 +92,7 @@ class PostsController < ApplicationController
     end
 
     def check_user
-      if @post.user_id != current_user.id
+      if @post.user_id != session[:user_id]
         flash[:alert] = 'You have not permission!'
         redirect_to root_path
       end

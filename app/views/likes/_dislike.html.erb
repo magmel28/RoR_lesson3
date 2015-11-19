@@ -1,5 +1,6 @@
 <%= button_to '', { :controller => :likes, :action => :vote, :post_id => @post.id, :user_id => session[:user_id],
-                    dislike_post: :true }, remote: true, id: :dislike_btn, class: :dislike_btn %>
+                    dislike_post: :true }, remote: true, id: :dislike_btn, class: :dislike_btn,
+                    disabled: check_user_post %>
 <div class="vote dislike_count_post_id<%= @post.id %>">
   <%= @post.likes.dislike_post.count %>
 </div>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     member do
-      post 'like'
+      post 'vote'
     end
   end
 

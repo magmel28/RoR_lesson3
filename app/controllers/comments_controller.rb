@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :check_comment_permission, only: :destroy
   before_action :set_comment, only: [:update, :destroy]
 
-
   def index
   end
 
@@ -19,6 +18,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = 'Your comment was sent'
       redirect_to @post
+      @comment.post.touch
     else
       flash.now[:danger] = 'error'
     end

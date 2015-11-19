@@ -1,6 +1,6 @@
 module PostsHelper
   def check_user_post
-    true if @post.user.id == current_user.id
+    true if @post.user.id == session[:user_id]
   end
 
   def check_user_comment(comment)
