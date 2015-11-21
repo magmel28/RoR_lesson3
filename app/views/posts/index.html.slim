@@ -32,7 +32,7 @@ div.posts-actions
 
         div.tags.text-muted
           | Tags:
-          = post.tags
+          = raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
         div.post-info
           div

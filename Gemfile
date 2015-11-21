@@ -14,7 +14,7 @@ gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'slim-rails'
 gem 'font-awesome-sass'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '3.4'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
