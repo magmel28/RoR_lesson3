@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     elsif params['sort_by'] == 'active'
       @posts = @posts.sort_by { |post| post[:updated_at]}.reverse
     elsif params[:tag]
-      @posts = Post.tagged_with(params[:tag]).newest
+      @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post.all.newest.reverse
     end
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :tag_list)
+      params.require(:post).permit(:title, :body, :tag_list, :post_image_url)
     end
 
     def check_user

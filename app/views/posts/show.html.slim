@@ -1,7 +1,12 @@
 div.post
 
+
+  div.post-image
+    = image_tag @post.post_image_url
+
   h2.title
     = @post.title
+    
   div.votes
     = render partial: ('likes/like')
     = render partial: ('likes/dislike')
