@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'favorite_posts/create'
+
+  get 'favorite_posts/destroy'
+
   post 'likes/vote'
 
 #  get 'comments/new'
@@ -8,14 +12,18 @@ Rails.application.routes.draw do
  # get 'users/new'
 
 
-  resources :users
+  resources :users do
+    resources :favorite_posts
+  end
   resources :sessions
   resources :posts do
     resources :comments
+    resources :favorite_posts, only: [:create, :destroy]
     member do
       post 'vote'
     end
   end
+
 
   root 'posts#index'
   #get 'posts/index'

@@ -11,6 +11,12 @@ div.post
     = render partial: ('likes/like')
     = render partial: ('likes/dislike')
 
+  div.favorites
+    - unless current_user.favorite_posts.exists?(id: @post.id)
+      = link_to 'Add to favorites', post_favorite_posts_path(post_id: @post.id), method: :post
+    - else
+      = link_to 'Remove from favorites', post_favorite_post_path(post_id: @post.id), method: :delete
+
   p.body
     = @post.body
 

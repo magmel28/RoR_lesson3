@@ -14,7 +14,7 @@
           <div class="user-post">
             <h4><%= post.title %></h4>
             <p><%= post.body %></p>
-            <p class="tags">Tags: <%= post.tags %></p>
+            <p class="tags">Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
             <div class="actions">
               <%= link_to 'Show', post, class: "btn btn-info" %>
                 <% if check_user_permission %>
@@ -23,5 +23,11 @@
                 <% end %>
             </div>
           </div>
+      <% end %>
+
+      <% @user_favorites.each do |favorite| %>
+        <div>
+          <%= favorite.title %>
+        </div>
       <% end %>
 </div>
