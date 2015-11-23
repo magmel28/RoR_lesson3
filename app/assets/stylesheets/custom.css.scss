@@ -2,7 +2,11 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic&subset=latin,cyrillic-ext');
 
+body{
+  font-family: 'Roboto', sans-serif !important;
+}
 /* universal */
 
 .alert-alert{
@@ -59,8 +63,8 @@ header.navbar{
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  padding-top: 8px;
 }
 
 #logo:hover {
@@ -222,10 +226,7 @@ a.btn{
 a.btn-default{
   color: #222222 !important;
 }
-#logo{
-  padding-top: 16px;
-}
 input, textarea{
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 3px 10px;
 }

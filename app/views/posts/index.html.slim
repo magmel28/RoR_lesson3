@@ -39,7 +39,7 @@ div.posts-actions
 
         div.post-info
           div
-            = post.created_at
+            = post.created_at.to_date
           div.votes
             - @post = post
             = render partial: ('likes/like')

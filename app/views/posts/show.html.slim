@@ -13,9 +13,9 @@ div.post
 
   div.favorites
     - unless current_user.favorite_posts.exists?(id: @post.id)
-      = link_to 'Add to favorites', post_favorite_posts_path(post_id: @post.id), method: :post
+      = link_to ' ', post_favorite_posts_path(post_id: @post.id), method: :post, class: 'favorite'
     - else
-      = link_to 'Remove from favorites', post_favorite_post_path(post_id: @post.id), method: :delete
+      = link_to ' ', post_favorite_post_path(post_id: @post.id), method: :delete, class: 'unfavorite'
 
   p.body
     = @post.body

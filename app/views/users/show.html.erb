@@ -6,6 +6,7 @@
       <td class = 'user-info'>
         <p><%= @user.name %></p>
         <p><span><%= @user.email %></span></p>
+        <p><%= link_to 'Favorites', user_favorite_posts_url(user_id: @user.id) %></p>
       </td>
     </tr>
   </table>
@@ -13,7 +14,6 @@
       <% @user_posts.each do |post| %>
           <div class="user-post">
             <h4><%= post.title %></h4>
-            <p><%= post.body %></p>
             <p class="tags">Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
             <div class="actions">
               <%= link_to 'Show', post, class: "btn btn-info" %>
@@ -23,11 +23,5 @@
                 <% end %>
             </div>
           </div>
-      <% end %>
-
-      <% @user_favorites.each do |favorite| %>
-        <div>
-          <%= favorite.title %>
-        </div>
       <% end %>
 </div>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :favorite_posts
+    resources :posts
   end
   resources :sessions
   resources :posts do

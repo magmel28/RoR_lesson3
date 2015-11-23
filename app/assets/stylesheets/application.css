@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.votes{
+    display: inline-block;
+}
+.favorites{
+    display: inline-block;
+}
+.favorites .favorite, .favorites .unfavorite{
+    background-image: url('favorite.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 27px;
+    display: inline-block;
+    height: 27px;
+    position: relative;
+    top: 8px;
+}
+.favorites .unfavorite{
+    background-image: url('unfavorite.png');
+}

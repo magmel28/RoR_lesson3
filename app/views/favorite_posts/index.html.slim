@@ -1,3 +1,6 @@
+h1 #{@user.name}'s favorite posts
 - @user_favorites.each do |favorite|
-  div
-    = favorite.title
+  div.post
+    h3 = favorite.title
+    p = raw favorite.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+    = link_to 'Show', favorite, class: 'btn btn-info'
