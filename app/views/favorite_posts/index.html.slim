@@ -1,6 +1,20 @@
 h1 #{@user.name}'s favorite posts
-- @user_favorites.each do |favorite|
-  div.post
-    h3 = favorite.title
-    p = raw favorite.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-    = link_to 'Show', favorite, class: 'btn btn-info'
+table.table.table-striped
+  thead
+    tr
+      th Title
+      th Content
+      th Tags
+      th Author
+      th Date
+      th
+  tbody
+    - @user_favorites.each do |post|
+      tr
+        td = post.title
+        td = post.body.truncate(30)
+        td = raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+        td = post.user.name
+        td = post.created_at.to_date
+        td
+          = link_to 'Show', post, class: 'btn btn-info'

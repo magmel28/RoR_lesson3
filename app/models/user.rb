@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
 
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :favorited, source_type: 'Post'
+
+  def to_param
+    [id, name].join("-")
+  end
 end

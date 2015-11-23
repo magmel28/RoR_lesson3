@@ -6,8 +6,7 @@ div.posts-actions
   //= link_to 'Popular posts', controller: :posts, action: :index, :method => 'get', popular: :true
   span Sort:
   = form_tag posts_path, class: 'sort', :method => 'get' do
-    = select_tag(:sort_by, options_for_select([['Newest', 'newest'], ['Popular', 'popular'], ['Active', 'active']], params[:sort_by]),
-                 :onchange => "this.form.submit();")
+    = select_tag(:sort_by, options_for_select([['Newest', 'newest'], ['Popular', 'popular'], ['Active', 'active']], params[:sort_by]), :onchange => "this.form.submit();")
 
 
 
