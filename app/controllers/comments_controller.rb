@@ -14,12 +14,14 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user_id = session[:user_id]
     @comment.save
-    current_user.update_attribute('raiting', current_user.raiting *= 2)
+
 
     if @comment.save
       flash[:notice] = 'Your comment was sent'
-      redirect_to @post
+      current_user.update_attribute('raiting', current_user.raiting *= 2)
       @comment.post.touch
+      redirect_to @post
+
     else
       flash.now[:danger] = 'error'
     end

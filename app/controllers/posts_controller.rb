@@ -47,9 +47,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
+        current_user.update_attribute('raiting', current_user.raiting *= 5)
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
-        current_user.update_attribute('raiting', current_user.raiting *= 5)
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
