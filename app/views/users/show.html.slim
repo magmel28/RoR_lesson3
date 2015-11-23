@@ -4,14 +4,21 @@ div.user-page
     tr
       td = gravatar_for @user
       td.user-info
-        p = @user.name
         p
+          i' class="fa fa-user"
+          = @user.name
+        p
+          i' class="fa fa-envelope"
           span = @user.email
         p
           = image_tag 'http://findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png', class: 'star'
           = link_to 'Favorite posts', user_favorite_posts_url(user_id: @user.id)
           = image_tag 'http://findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png', class: 'star'
-
+    tr
+      td.text-center
+        | Rating:
+        = @user.raiting
+      td
   h3 User posts:
   table.table.table-striped
     thead

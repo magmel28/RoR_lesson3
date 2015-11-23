@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user_id = session[:user_id]
     @comment.save
+    current_user.update_attribute('raiting', current_user.raiting *= 2)
 
     if @comment.save
       flash[:notice] = 'Your comment was sent'
@@ -27,6 +28,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    current_user.update_attribute('raiting', current_user.raiting /= 2)
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'The comment was successfully destroyed.' }
       format.json { head :no_content }

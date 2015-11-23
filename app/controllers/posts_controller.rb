@@ -3,9 +3,8 @@ class PostsController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
   before_action :check_user_auth, only: :create
 
-  #require 'action_view'
+  attr_accessor :raiting
 
-  #include ActionView::Helpers::DateHelper
   # GET /posts
   # GET /posts.json
   def index
@@ -50,6 +49,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        current_user.update_attribute('raiting', current_user.raiting *= 5)
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -75,6 +75,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    current_user.update_attribute('raiting', current_user.raiting /= 5)
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }

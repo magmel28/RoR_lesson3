@@ -3,14 +3,11 @@ div
   table.table-responsive.users
     thead
       tr
-        th
-          | Id
-        th
-          | Name
-        th
-          | e-mail
-        th
-          | Registered
+        th Id
+        th Name
+        th e-mail
+        th Raiting
+        th Registered
 
     - @users.each do |user|
       tbody
@@ -18,6 +15,7 @@ div
           td = user.id
           td = link_to user.name, user
           td = user.email
+          td = user.raiting
           td = user.created_at.to_date
 
 
