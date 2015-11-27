@@ -1,0 +1,22 @@
+// Place all the styles related to the FavoritePosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.votes{
+  display: inline-block;
+}
+.favorites{
+  display: inline-block;
+}
+.favorites .favorite, .favorites .unfavorite{
+  background-image: url('favorite.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 27px;
+  display: inline-block;
+  height: 27px;
+  position: relative;
+  top: 8px;
+}
+.favorites .unfavorite{
+  background-image: image-url('unfavorite.png');
+}

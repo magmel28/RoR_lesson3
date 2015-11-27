@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+/*
 .votes{
     display: inline-block;
 }
@@ -31,4 +32,4 @@
 }
 .favorites .unfavorite{
     background-image: url('unfavorite.png');
-}
+}*/
