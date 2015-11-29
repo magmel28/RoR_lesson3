@@ -18,7 +18,6 @@
     margin-top: -25px;
     color: white;
   }
-
 }
 .comments{
   h3{
@@ -29,6 +28,10 @@
   padding-left: 50px;
 }
 .comments{
+  .new_comment_btn{
+    display: none;
+    margin-top: 20px;
+  }
   .comment{
     position: relative;
     left: -50px;
@@ -38,6 +41,7 @@
     td:last-child{
       width: 100%;
     }
+
   }
 
   td{

@@ -45,7 +45,8 @@ div.comments#comments
       = render partial: 'comments/comment', locals: { comment: comment }
 
   -if @current_user.present?
-    //= link_to 'New comment', new_post_comment_path(@post), class: 'btn btn-success add_comment'
+    =' link_to 'New comment', new_post_comment_path(post_id: @post.id, parent_id: nil), remote: true, method: :get,
+    class: 'btn btn-success new_comment_btn'
     = render partial: 'comments/form'
 
   -else
