@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   post 'likes/vote'
 
+  post 'comments/new'
+  get 'comments/new'
+
 #  get 'comments/new'
 
   #get 'sessions/new'
@@ -34,6 +37,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get 'tags/:tag', to: 'posts#index', as: :tag
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

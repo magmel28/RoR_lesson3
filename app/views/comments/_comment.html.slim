@@ -1,0 +1,19 @@
+table class='comment' id=comment.id
+  tr
+    td
+      = gravatar_for(comment.user)
+    td
+      h4 = comment.user.name
+      div.comment_body = comment.body
+      div.comment_info.text-muted
+        =' distance_of_time_in_words(comment.created_at, Time.now)
+        | ago
+        -if check_user_comment(comment)
+          =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-mini'
+        =' link_to 'Reply', controller: :comments, action: :new, id: comment.id, remote: true, method: :get
+  - if comment.has_children?
+      tr
+        td
+        td
+          - comment.children.each do |child_comment|
+            = render partial: 'comments/comment', locals: { comment: child_comment }

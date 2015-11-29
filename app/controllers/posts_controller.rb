@@ -26,7 +26,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = @post.comments
+    @comments = @post.comments.where(ancestry: nil)
+    @comment = Comment.new
   end
 
   # GET /posts/new
