@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'comments/new'
   get 'comments/new'
 
+  post 'comments/create'
+  get 'comments/create'
 #  get 'comments/new'
 
   #get 'sessions/new'

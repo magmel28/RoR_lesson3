@@ -10,7 +10,7 @@ table class='comment' id=comment.id
         | ago
         -if check_user_comment(comment)
           =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-mini'
-        =' link_to 'Reply', controller: :comments, action: :new, id: comment.id, remote: true, method: :get
+        =' link_to 'Reply', new_post_comment_path(post_id: comment.post.id, comment_id: comment.id), remote: true, method: :get
   - if comment.has_children?
       tr
         td
