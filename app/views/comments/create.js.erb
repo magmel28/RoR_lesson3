@@ -1,5 +1,7 @@
+$('.new_comment textarea').val('');
+
 <% if @comment.root? %>
   $(".comments_box").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
 <% else %>
-$("#<%= @comment.parent.id %> .comment-children ").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
+  $("#<%= @comment.parent.id %> > tbody > tr > .comment-children ").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
 <% end %>
