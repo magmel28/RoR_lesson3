@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
     @comment.user_id = session[:user_id]
 
     if @comment.save
-      current_user.update_attribute('raiting', current_user.raiting *= 2)
-      @comment.post.touch
+      #current_user.update_attribute('raiting', current_user.raiting *= 2)
+      #@comment.post.touch
 
       respond_to do |format|
         format.html { redirect_to @post, notice: 'Your comment was sent' }

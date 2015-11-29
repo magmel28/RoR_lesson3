@@ -1,1 +1,2 @@
-$('.comments_box').append('<%= j render(:partial => 'comments/form') %>');
+$('#new_comment').remove();
+$('#<%= params[:parent_id] %>').after('<%= j render(:partial => 'comments/form') %>');
