@@ -1,4 +1,7 @@
 = form_for [@post, @comment], remote: true do |c|
+
+  = c.hidden_field :parent_id, value: params[:parent_id] ? params[:parent_id] : nil
+
   div.field
     = c.label :body
     br
