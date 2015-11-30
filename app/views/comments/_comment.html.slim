@@ -3,16 +3,20 @@ table class='comment' id=comment.id
     td
       = gravatar_for(comment.user)
     td
-      h4 = comment.user.name
+      h4 = link_to comment.user.name, comment.user
       div.comment_body = comment.body
       div.comment_info.text-muted
         =' distance_of_time_in_words(comment.created_at, Time.now)
         | ago
-        -if check_user_comment(comment)
-          =' link_to 'Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'},
-           class: 'btn btn-danger btn-mini'
-        =' link_to 'Reply', new_post_comment_path(post_id: comment.post.id, parent_id: comment.id), remote: true, method: :get, class: 'btn btn-primary btn-mini'
-
+        - unless comment.root?
+          = ' to ' + comment.parent.user.name + ' '
+        | -
+        - if comment.depth < 4
+          =' link_to ' Reply', new_post_comment_path(post_id: comment.post.id, parent_id: comment.id), remote: true, method: :get
+        - if check_user_comment(comment)
+          | - 
+          =' link_to ' Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'},
+          class: 'text-danger'
     tr
       td
       td.comment-children

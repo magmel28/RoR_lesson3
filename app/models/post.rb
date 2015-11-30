@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 140 }
 
   belongs_to  :user
-  has_many    :comments
-  has_many    :likes
+  has_many    :comments, dependent: :destroy
+  has_many    :likes, dependent: :destroy
 
   scope :newest, -> { order('created_at')  }
 end

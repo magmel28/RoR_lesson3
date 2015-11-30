@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user_id = session[:user_id]
-
+    if @comment.depth >= 5
+      @comment.ancestry = nil
+    end
     if @comment.save
       #current_user.update_attribute('raiting', current_user.raiting *= 2)
       #@comment.post.touch
@@ -23,9 +25,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to @post, notice: 'Your comment was sent' }
         format.js {}
       end
-
-
-
 
     else
       flash.now[:danger] = 'error'
