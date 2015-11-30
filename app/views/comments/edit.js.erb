@@ -1,0 +1,5 @@
+$('#new_comment').remove();
+$('.edit_comment').remove();
+$('.comment_body').css('display', 'block')
+$(".new_comment_btn").css('display', 'inline-block')
+$('#<%= @comment.id %> > tbody > tr > td > .comment_body').css('display', 'none').after('<%= j render(:partial => 'comments/form') %>');

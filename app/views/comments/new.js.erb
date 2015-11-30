@@ -1,5 +1,12 @@
 $('#new_comment').remove();
 
+var display = $('.edit_comment').css('display')
+
+if ($('.edit_comment').css('display') === 'block'){
+  $('.edit_comment').remove();
+  $('.comment_body').css('display', 'block');
+}
+
 <% if params[:parent_id].nil? %>
   $(".comments").append("<%= j render(:partial => 'comments/form') %>");
   $(".new_comment_btn").css('display', 'none')

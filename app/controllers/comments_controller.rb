@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :check_comment_permission, only: :destroy
-  before_action :set_comment, only: [:update, :destroy]
+  before_action :set_comment, only: [:update, :destroy, :edit]
+  before_action :set_post
 
   def index
   end
@@ -32,12 +33,35 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    current_user.update_attribute('raiting', current_user.raiting /= 2)
+    current_user.update_attribute('raiting', current_user.raiting -= 2)
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'The comment was successfully destroyed.' }
+      format.html { redirect_to @post, notice: 'The comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { }
+    end
+
+  end
+
+  def update
+    respond_to do |format|
+      if @comment.update(params.require(:comment).permit(:body))
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.js {}
+      else
+        format.html { redirect_to @post, notice: 'Error' }
+        format.js {}
+      end
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.html { redirect_to @post, notice: 'The comment was successfully updated.' }
+      format.js {}
     end
   end
 
@@ -58,4 +82,9 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
+
 end

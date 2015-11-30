@@ -16,6 +16,24 @@
 //= require turbolinks
 //= require_tree .
 
+/*
 
+var time_start = $('.time-left').html().to_int;
 
+for(var i = 0; time_start; time_start++ ) {
+    $('.time-left').html('time_start - 1');
+    var time_start = $('.time-left').html().to_int;
+}
 
+var countdown = $('.time-left').html().to_int;
+    startFrom = 10,
+    timer;
+function startCountdown(){
+    countdown.parent('p').show();
+    timer = setInterval(function(){
+        countdown.text(startFrom--);
+        if(startFrom <= 0) clearInterval(timer);
+    },1000);
+}
+
+*/

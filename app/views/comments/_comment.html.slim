@@ -15,8 +15,11 @@ table class='comment' id=comment.id
           span' -
           =' link_to ' Reply', new_post_comment_path(post_id: comment.post.id, parent_id: comment.id), remote: true, method: :get
         - if check_user_comment(comment)
-          | - 
-          =' link_to ' Destroy', [@post, comment], method: :delete, data: {confirm: 'Are you sure?'},
+          | -
+          - if comment_time(comment) < 300
+            = link_to 'Edit', edit_post_comment_path(@post, comment), remote: true
+          | -
+          =' link_to ' Destroy', post_comment_path(@post, comment), method: :delete, data: {confirm: 'Are you sure?'}, remote: true,
           class: 'text-danger'
     tr
       td

@@ -4,4 +4,4 @@ $('.new_comment textarea').val('');
   $(".comments_box").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
 <% else %>
   $("#<%= @comment.parent.id %> > tbody > tr > .comment-children ").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
-<% end %>
+<% end %>3

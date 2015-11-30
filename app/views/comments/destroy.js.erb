@@ -1,0 +1,4 @@
+$('#new_comment').remove();
+$('#<%= @comment.id %>').css('background-color', 'rgba(255,0,0,0.3)').fadeOut( "slow", function() {
+  $('#<%= @comment.id %>').remove();
+});
