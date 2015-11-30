@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   post 'comments/create'
   get 'comments/create'
+
+  post 'comments/update'
+  get 'comments/update'
 #  get 'comments/new'
 
   #get 'sessions/new'

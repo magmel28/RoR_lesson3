@@ -6,12 +6,13 @@ table class='comment' id=comment.id
       h4 = link_to comment.user.name, comment.user
       div.comment_body = comment.body
       div.comment_info.text-muted
-        =' distance_of_time_in_words(comment.created_at, Time.now)
-        | ago
+        =' distance_of_time_in_words(comment.created_at, Time.now) + ' ago'
+
         - unless comment.root?
           = ' to ' + comment.parent.user.name + ' '
-        | -
-        - if comment.depth < 4
+
+        - if comment.depth < 4 and current_user
+          span' -
           =' link_to ' Reply', new_post_comment_path(post_id: comment.post.id, parent_id: comment.id), remote: true, method: :get
         - if check_user_comment(comment)
           | - 

@@ -37,7 +37,7 @@ div.user-page
           td = post.created_at.to_date
           td
             = link_to 'Show', post, class: 'btn btn-info'
-            - if current_user.id == @user.id
+            - if session[:user_id] == @user.id
               = link_to 'Edit', edit_post_path(post), class: 'btn btn-warning'
               = link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
 
