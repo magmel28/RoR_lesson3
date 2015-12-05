@@ -47,7 +47,7 @@ div.user-page
           td.text-center = post.likes.like_post.count
           td.text-center = post.likes.dislike_post.count
           td = post.created_at.to_date
-          td
+          td style = 'min-width: 220px'
             = link_to 'Show', post, class: 'btn btn-info'
             - if session[:user_id] == @user.id
               = link_to 'Edit', edit_post_path(post), class: 'btn btn-warning'

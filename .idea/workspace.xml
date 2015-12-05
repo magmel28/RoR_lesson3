@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4055bb-d267-4ce4-86ed-fa4ae706f1f4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comments/destroy.js.erb" afterPath="$PROJECT_DIR$/app/views/comments/destroy.js.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.slim" afterPath="$PROJECT_DIR$/app/views/users/show.html.slim" />
     </list>
     <ignored path="RoR_lesson3.iws" />
@@ -60,8 +58,8 @@
       <file leaf-file-name="show.html.slim" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/show.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7580645">
-              <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.7096774">
+              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1317,8 +1315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7580645">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.7096774">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding />
         </state>
       </provider>
