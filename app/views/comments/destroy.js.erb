@@ -1,4 +1,5 @@
 $('#new_comment').remove();
+$('.new_comment_btn').css('display', 'inline-block');
 $('#<%= @comment.id %>').css('background-color', 'rgba(255,0,0,0.3)').fadeOut( "slow", function() {
   $('#<%= @comment.id %>').remove();
 });

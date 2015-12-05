@@ -14,11 +14,19 @@ div.user-page
           = image_tag 'http://findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png', class: 'star'
           = link_to 'Favorite posts', user_favorite_posts_url(user_id: @user.id)
           = image_tag 'http://findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png', class: 'star'
+
     tr
       td.text-center
         | Rating:
         = @user.raiting
-      td
+
+
+      td.likes_count
+        = image_tag 'thumbs-up.png', :style => 'top: -3px'
+        = @user.likes.where(like_post: true).count
+
+        = image_tag 'thumbs-down.png'
+        = @user.likes.where(dislike_post: true).count
   h3 User posts:
   table.table.table-striped
     thead
@@ -26,6 +34,8 @@ div.user-page
       th Title
       th Content
       th Tags
+      th Likes
+      th Dislikes
       th Date
       th
     tbody
@@ -34,6 +44,8 @@ div.user-page
           td = post.title
           td = post.body.truncate(30)
           td = raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+          td.text-center = post.likes.like_post.count
+          td.text-center = post.likes.dislike_post.count
           td = post.created_at.to_date
           td
             = link_to 'Show', post, class: 'btn btn-info'
